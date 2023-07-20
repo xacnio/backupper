@@ -1,0 +1,48 @@
+{
+  "timezone": "Europe/Istanbul",
+  "dateFormat": "2006-01-02__15-04-05",
+  "logLevel": "info",
+  "backups": [
+    {
+      "name": "backup-title",
+      "cronExpr": "*/60 * * * * *",
+      "callbackUrl": "http://example.com/callback",
+      "deleteLocal": true,
+      "source": {
+        "type": "sftp",
+        "info": {
+          "host": "127.0.0.1",
+          "port": 22,
+          "user": "root",
+          "pass": "",
+          "privateKeyFile": "~/.ssh/custom_id_rsa",
+          "privateKeyPass": "",
+          "beforeCommands": [
+            "cd /opt/foo/bar",
+            "zip -r /tmp/backupper/$BACKUP_ID/foo_backup.zip ."
+          ],
+          "downloads": [
+            "foo_backup.zip"
+          ],
+          "afterCommands": [
+            "rm -rf /tmp/backupper/$BACKUP_ID/"
+          ]
+        }
+      },
+      "destination": {
+        "type": "ftp",
+        "deleteAfterUpload": true,
+        "info": {
+          "host": "backup-ftp.example.com",
+          "port": 21,
+          "user": "root",
+          "pass": "p4ssw0rd",
+          "target": "/up/backups/foo/",
+          "limitByCount": 3,
+          "LimitBySize": 1073741824,
+          "limitByDate": "2 DAYS"
+        }
+      }
+    }
+  ]
+}
