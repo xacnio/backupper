@@ -204,3 +204,8 @@ Multiple durations can be used together. (e.g. 1 HOUR 30 MINUTES)
 | backup_name               | Name of the backup schedule                                                   | string |
 | backup_source             | Source server type (ftp/sftp)                                                 | string |
 | backup_ts                 | Backup timestamp (Unix seconds)                                               | int    |
+
+# Used Modules
+- [go-co-op/gocron](https://pkg.go.dev/github.com/go-co-op/gocron)
+- [jlaffaye/ftp](https://pkg.go.dev/github.com/jlaffaye/ftp)
+- [uber/zap](https://pkg.go.dev/go.uber.org/zap)
