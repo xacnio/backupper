@@ -129,9 +129,10 @@ func (b *Backup) runSourceSFTP() error {
 		}
 
 		if len(info.AfterCommands) > 0 {
+			nameEscaped := strings.ReplaceAll(b.Name, "\"", "\\\"")
 			commands := []string{
 				"BACKUP_ID=" + b.stringID(),
-				"BACKUP_NAME=" + b.Name,
+				"BACKUP_NAME=\"" + nameEscaped + "\"",
 			}
 			commands = append(commands, info.AfterCommands...)
 
