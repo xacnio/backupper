@@ -3,7 +3,6 @@ module github.com/xacnio/backupper
 go 1.20
 
 require (
-	github.com/bramvdbogaerde/go-scp v1.2.1
 	github.com/go-co-op/gocron v1.30.1
 	github.com/jlaffaye/ftp v0.2.0
 	github.com/pkg/sftp v1.13.5

@@ -2,7 +2,6 @@ package sftp
 
 import (
 	"fmt"
-	"github.com/bramvdbogaerde/go-scp/auth"
 	"github.com/pkg/sftp"
 	"github.com/xacnio/backupper/internal/utils"
 	"github.com/xacnio/backupper/internal/utils/logger"
@@ -89,13 +88,7 @@ func (f *SFTP) Disconnect() error {
 func (f *SFTP) Connect() error {
 	var err error
 
-	var clientConfig ssh2.ClientConfig
-
 	c := f.Config
-	if c.PrivateKey != "" {
-		clientConfig, _ = auth.PrivateKey(c.User, c.PrivateKey, ssh2.InsecureIgnoreHostKey())
-		f.Auth = clientConfig
-	}
 
 	f.SSHClient, err = ssh2.Dial("tcp", fmt.Sprintf("%s:%d", c.Host, c.Port), &f.Auth)
 	if err != nil {
