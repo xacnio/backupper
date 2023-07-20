@@ -174,6 +174,7 @@ Also you can use [`config.example.json`](config.example.json) as a template.
 | 3 WEEKS               | All files before 3 weeks      |
 | 4 MONTHS              | All files before 4 months     |
 | 5 YEARS               | All files before 5 years      |
+
 Multiple durations can be used together. (e.g. 1 HOUR 30 MINUTES)
 
 ## Callback Post Data
