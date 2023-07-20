@@ -1,7 +1,7 @@
 ### (IN DEVELOPMENT)
 
 # Backupper
-The tool is for backuping file from FTP/SFTP source and save it another backup storage.
+The tool is for backuping file from FTP/SFTP source and save it another FTP/SFTP backup destination.
 
 # Features
 - Schedule backuping with CRON expression in config file
