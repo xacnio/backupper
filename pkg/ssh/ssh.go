@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/xacnio/backupper/internal/utils/logger"
 	ssh2 "golang.org/x/crypto/ssh"
-	"log"
 	"os"
 	"time"
 )
@@ -38,7 +37,7 @@ func New(c ConnConfig) *SSH {
 	if c.PrivateKey != "" {
 		key, err := os.ReadFile(c.PrivateKey)
 		if err != nil {
-			log.Fatalf("Unable to read private key: %v", err)
+			logger.SSH.Error("Unable to read private key: %v", err)
 		} else {
 			if c.Passphrase != "" {
 				signer, err := ssh2.ParsePrivateKeyWithPassphrase(key, []byte(c.Passphrase))
