@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
-const VERSION = "0.0.7"
+const VERSION = "0.0.8"
 
 func main() {
 	// Load config and logger
