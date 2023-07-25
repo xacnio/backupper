@@ -39,6 +39,15 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+nfpms:
+  - package_name: backupper
+    homepage: https://github.com/xacnio/backupper/
+    maintainer: Alperen Çetin <me@xacnio.dev>
+    description: |-
+      Backupper installer package.
+    formats:
+      - rpm
+      - deb
 
 # The lines beneath this are called `modelines`. See `:help modeline`
 # Feel free to remove those if you don't want/use them.
