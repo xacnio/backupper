@@ -31,3 +31,4 @@ tmp/
 
 .idea/
 .vscode/
+dist/
