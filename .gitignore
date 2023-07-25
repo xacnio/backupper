@@ -23,7 +23,7 @@ go.work
 backupper
 build/
 main
-config*
+/config*
 !config.example.json
 
 logs/
