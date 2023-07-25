@@ -31,7 +31,8 @@ func main() {
 	// Create scheduler and load all the backups
 	s := gocron.NewScheduler(utils.TimeLocation)
 	backups := utils.ConvertToStruct[[]backup.Backup](config.Get().Backups)
-	for i, bup := range backups {
+	for i := range backups {
+		bup := &backups[i]
 		var err error
 		if strings.Count(bup.CronExpression, " ") == 5 {
 			backups[i].Job, err = s.CronWithSeconds(bup.CronExpression).Do(bup.CreateFunc())
