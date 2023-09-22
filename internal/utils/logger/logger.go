@@ -16,10 +16,11 @@ type LogConfig struct {
 }
 
 var (
-	Main *zap.SugaredLogger
-	SSH  *zap.SugaredLogger
-	SFTP *zap.SugaredLogger
-	FTP  *zap.SugaredLogger
+	Main  *zap.SugaredLogger
+	SSH   *zap.SugaredLogger
+	SFTP  *zap.SugaredLogger
+	FTP   *zap.SugaredLogger
+	TgBot *zap.SugaredLogger
 )
 
 var Logs = []LogConfig{
@@ -27,6 +28,7 @@ var Logs = []LogConfig{
 	{Output: "ssh.log", Name: "SSH"},
 	{Output: "sftp.log", Name: "SFTP"},
 	{Output: "ftp.log", Name: "FTP"},
+	{Output: "tgbot.log", Name: "TgBot"},
 }
 
 func loggerConfigBuilder(lc LogConfig) zap.Config {
@@ -83,6 +85,8 @@ func Init() {
 			SFTP = _sugar
 		case "FTP":
 			FTP = _sugar
+		case "TgBot":
+			TgBot = _sugar
 		}
 	}
 }

@@ -19,6 +19,8 @@ func (b *Backup) runDestination() error {
 		return b.runDestinationSFTP()
 	case "ftp":
 		return b.runDestinationFTP()
+	case "telegram_bot":
+		return b.runDestinationTelegramBot()
 	}
 	return nil
 }

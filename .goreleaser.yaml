@@ -8,6 +8,8 @@ before:
     - go generate ./...
 builds:
   - main: ./cmd/backupper/main.go
+    flags:
+      - -trimpath
     env:
       - CGO_ENABLED=0
     goos:

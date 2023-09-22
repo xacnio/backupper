@@ -8,6 +8,7 @@ The tool is for backuping file from FTP/SFTP source and save it another FTP/SFTP
 - Download files from FTP/SFTP sources
 - Executing commands on source server (SFTP only)
 - Upload files to FTP/SFTP destinations
+- Upload files to Telegram with Bot API (max 50 MB files)
 - Limit the file count in target folder (if limit is reached, oldest backups will be deleted)
 - Limit the total file size in target folder (if limit is reached, oldest backups will be deleted)
 - Limit the target folder by duration (oldest backups than date will be deleted)
@@ -133,11 +134,17 @@ Also you can use [`config.example.json`](config.example.json) as a template.
 | $BACKUP_NAME | Name of the backup schedule                                                   | string |
 
 ## Destination
-| Key               | Description                                    | Type   |
-|-------------------|------------------------------------------------|--------|
-| type              | Destination server type (ftp/sftp)             | string |
-| deleteAfterUpload | Delete files after upload process is completed | bool   |
-| info              | Destination server information                 | object |
+| Key               | Description                                     | Type   |
+|-------------------|-------------------------------------------------|--------|
+| type              | Destination server type (ftp/sftp/telegram_bot) | string |
+| deleteAfterUpload | Delete files after upload process is completed  | bool   |
+| info              | Destination server information                  | object |
+
+### Destination Info (Telegram with Bot API) (max 50 MB files)
+| Key          | Description                                                  | Type   |
+|--------------|--------------------------------------------------------------|--------|
+| token        | Telegram bot token from [@BotFather](https://t.me/BotFather) | string |
+| chatID       | Telegram chat ID (channel/group) or public username          | string |
 
 ### Destination Info (FTP)
 | Key          | Description                                           | Type   |
